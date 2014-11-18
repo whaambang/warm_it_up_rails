@@ -43,4 +43,30 @@ describe 'API' do
     expect(json['answer']).to eq("Nope.")
   end
 
+  #solution tests
+  it 'returns all solutions' do
+    10.times {Solution.create(problem_id: 1,
+                              posse_id: 1,
+                              content: "things.sort",
+                              points_earned: 0
+                              ) }
+    
+    get "/api/v1/solutions.json"
+    json = JSON.parse(response.body)
+
+    expect(json['solutions'].count).to eq(10)
+  end
+
+  it 'returns a specific solution' do
+    solution = Solution.create(problem_id: 1,
+                              posse_id: 1,
+                              content: "things.sort",
+                              points_earned: 0
+                              )
+    
+    get "/api/v1/solutions/#{solution.id}.json"
+
+    json = JSON.parse(response.body)
+    expect(json['content']).to eq("things.sort")
+  end
 end
