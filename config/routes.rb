@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :posses, only: [:index, :show]
       resources :problems, only: [:index, :show]
       resources :solutions, only: [:index, :show]
+      resources :coderunner
     end
   end
 
