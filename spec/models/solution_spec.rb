@@ -25,4 +25,5 @@ describe 'the solution' do
     expect(Solution.all.count).to eq(1)
     expect(Solution.first.points_earned).to eq(0)
   end
+
 end

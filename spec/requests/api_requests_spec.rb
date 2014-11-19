@@ -69,4 +69,13 @@ describe 'API' do
     json = JSON.parse(response.body)
     expect(json['content']).to eq("things.sort")
   end
+
+  it 'is able to create solutions' do
+    post 'api/v1/solutions.json', Solution.new(posse_id: 1,
+                                               problem_id: 1,
+                                               content: "things.sort",
+                                               points_earned: 0
+                                                 ).to_json
+    expect(response.status).to eq(200)
+  end
 end
