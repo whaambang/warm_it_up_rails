@@ -69,4 +69,10 @@ describe 'API' do
     json = JSON.parse(response.body)
     expect(json['content']).to eq("things.sort")
   end
+
+  #evalulate code test
+  it 'returns evaluated code' do
+    post '/api/v1/coderunner', { code: "puts 'hello world'" }
+    expect(response.body).to eq('hello world')
+  end 
 end
