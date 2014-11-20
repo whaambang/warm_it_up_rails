@@ -41,6 +41,9 @@ ActiveRecord::Schema.define(version: 20141120221844) do
   create_table "users", force: true do |t|
     t.string   "uid"
     t.string   "provider"
+    t.string   "name"
+    t.string   "github_name"
+    t.string   "email"
     t.integer  "posse_id"
     t.datetime "created_at"
     t.datetime "updated_at"
