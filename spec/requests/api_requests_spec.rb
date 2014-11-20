@@ -41,10 +41,12 @@ describe "API" do
   end
 
   #solution tests
-  it 'returns all solutions' do
+  it "returns all solutions" do
+    posse = Posse.create(name: "Knuth")
     10.times do
-      Solution.create(problem_id: 1,
-                      posse_id: 1,
+      problem = Problem.create(content: "A problem", answer: "12345")
+      Solution.create(problem_id: problem.id,
+                      posse_id: posse.id,
                       content: "things.sort",
                       points_earned: 0)
     end
@@ -62,7 +64,7 @@ describe "API" do
 
     get "/api/v1/solutions/#{solution.id}.json"
     json = JSON.parse(response.body)
-    expect(json['content']).to eq("things.sort")
+    expect(json["solution"]["content"]).to eq("things.sort")
   end
 
   #evalulate code test
