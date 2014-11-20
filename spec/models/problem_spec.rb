@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe 'the problem' do
+
   it 'is valid with content and an answer' do
     problem = Problem.new(content: "Hardest question ever.",
-                          answer:  "You'll never guess it."
-                         )
+                          answer: "You'll never guess it.")
     problem.save
 
     expect(Problem.count).to eq(1)
@@ -19,5 +19,4 @@ describe 'the problem' do
 
     expect(Problem.count).to eq(0)
   end
-
 end

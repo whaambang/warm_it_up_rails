@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 describe 'the solution' do
-  it 'is valid with a problem_id, posse_id, content, and points_earned' do
 
-  solution = Solution.create(problem_id: 1,
-                              posse_id: 1,
-                              content: "things.sort",
-                              points_earned: 0
-                              )
+  it 'is valid with a problem_id, posse_id, content, and points_earned' do
+    solution = Solution.create(problem_id: 1,
+                             posse_id: 1,
+                             content: "things.sort",
+                             points_earned: 0)
     expect(Solution.all.count).to eq(1)
   end
 
@@ -25,5 +24,5 @@ describe 'the solution' do
     expect(Solution.all.count).to eq(1)
     expect(Solution.first.points_earned).to eq(0)
   end
-
 end
+

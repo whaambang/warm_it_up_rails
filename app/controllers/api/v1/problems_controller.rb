@@ -10,5 +10,4 @@ class Api::V1::ProblemsController < ApplicationController
     # respond_with Problem.find(params[:id])
     render json: Problem.find(params[:id])
   end
-
 end

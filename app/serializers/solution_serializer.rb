@@ -1,5 +1,6 @@
 class SolutionSerializer < ActiveModel::Serializer
   embed :ids, include: true
-  root false
-  attributes :id, :problem_id, :content, :points_earned
+  attributes :id, :problem_id, :posse_id, :content, :points_earned
+
+  has_one :problem
 end

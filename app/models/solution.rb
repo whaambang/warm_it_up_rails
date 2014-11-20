@@ -1,6 +1,7 @@
 class Solution < ActiveRecord::Base
-  # validates :problem_id, presence: true
-  # validates :posse_id, presence: true
+  validates :problem_id, presence: true
+  validates :posse_id, presence: true
+  validates :content, presence: true
 
   belongs_to :user
   belongs_to :problem
