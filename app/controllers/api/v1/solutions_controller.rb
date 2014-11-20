@@ -12,7 +12,6 @@ class Api::V1::SolutionsController < ApplicationController
   end
 
   def create
-    binding.pry
     Solution.create(solution_params)
     head :ok
   end
