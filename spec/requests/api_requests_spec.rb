@@ -72,7 +72,8 @@ describe 'API' do
 
   #evalulate code test
   it 'returns evaluated code' do
-    post '/api/v1/coderunner', { code: "puts 'hello world'" }
-    expect(response.body).to eq('hello world')
+    get '/api/v1/coderunner', { code: "puts 'hello world'" }
+    resp = response.body.delete('"')
+    expect(resp).to eq('hello world')
   end
 end
