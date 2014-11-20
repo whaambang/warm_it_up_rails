@@ -69,6 +69,7 @@ describe 'API' do
     json = JSON.parse(response.body)
     expect(json['content']).to eq("things.sort")
   end
+<<<<<<< HEAD
 
   it 'is able to create solutions' do
     post 'api/v1/solutions.json', Solution.new(posse_id: 1,
@@ -79,3 +80,14 @@ describe 'API' do
     expect(response.status).to eq(200)
   end
 end
+||||||| merged common ancestors
+end
+=======
+
+  #evalulate code test
+  it 'returns evaluated code' do
+    post '/api/v1/coderunner', { code: "puts 'hello world'" }
+    expect(response.body).to eq('hello world')
+  end 
+end
+>>>>>>> fcd3149e815364e6bd1cf626f033321f26ea8271
