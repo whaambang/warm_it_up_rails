@@ -1,4 +1,6 @@
 class Api::V1::SolutionsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   respond_to :json
 
   def index
@@ -8,4 +10,19 @@ class Api::V1::SolutionsController < ApplicationController
   def show
     respond_with Solution.find(params[:id])
   end
+
+  def create
+    binding.pry
+    Solution.create(solution_params)
+    head :ok
+  end
+
+  private
+
+    def solution_params
+      params.require(:solution).permit(:posse_id,
+                                       :problem_id,
+                                       :content,
+                                       :points_earned)
+    end
 end

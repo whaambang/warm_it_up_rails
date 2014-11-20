@@ -67,6 +67,11 @@ describe "API" do
     expect(json["solution"]["content"]).to eq("things.sort")
   end
 
+  it 'is able to create solutions' do
+    post 'api/v1/solutions.json', solution: { posse_id: 1, problem_id: 1, content: "things.sort", points_earned: 0 }
+    expect(response.status).to eq(200)
+  end
+
   #evalulate code test
   it "returns evaluated code" do
     get "/api/v1/coderunner", { code: "puts 'hello world'" }

@@ -25,3 +25,4 @@ describe 'the solution' do
     expect(Solution.first.points_earned).to eq(0)
   end
 end
+
