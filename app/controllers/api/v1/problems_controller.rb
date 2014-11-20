@@ -8,5 +8,4 @@ class Api::V1::ProblemsController < ApplicationController
   def show
     respond_with Problem.find(params[:id])
   end
-
 end

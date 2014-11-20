@@ -8,5 +8,4 @@ class Api::V1::SolutionsController < ApplicationController
   def show
     respond_with Solution.find(params[:id])
   end
-  
 end

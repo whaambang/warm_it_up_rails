@@ -16,5 +16,4 @@ describe "the posse model" do
 
     expect(Posse.all.count).to eq(0)
   end
-
 end
