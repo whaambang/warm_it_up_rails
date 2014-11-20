@@ -19,7 +19,7 @@ describe 'API' do
     get "/api/v1/posses/#{posse.id}.json"
 
     json = JSON.parse(response.body)
-    expect(json["name"]).to eq("McCarthy")
+    expect(json["posse"]["name"]).to eq("McCarthy")
   end
 
   #problem tests
@@ -50,7 +50,7 @@ describe 'API' do
                               content: "things.sort",
                               points_earned: 0
                               ) }
-    
+
     get "/api/v1/solutions.json"
     json = JSON.parse(response.body)
 
@@ -63,7 +63,7 @@ describe 'API' do
                               content: "things.sort",
                               points_earned: 0
                               )
-    
+
     get "/api/v1/solutions/#{solution.id}.json"
 
     json = JSON.parse(response.body)
@@ -74,5 +74,5 @@ describe 'API' do
   it 'returns evaluated code' do
     post '/api/v1/coderunner', { code: "puts 'hello world'" }
     expect(response.body).to eq('hello world')
-  end 
+  end
 end
