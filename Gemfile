@@ -18,3 +18,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'pry'
 end
+
+group :test do
+  gem 'shoulda-matchers', require: false
+end
