@@ -1,14 +1,14 @@
 class Api::V1::SolutionsController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  
-  respond_to :json
+
+  #respond_to :json
 
   def index
-    respond_with Solution.all
+    render json: Solution.all
   end
 
   def show
-    respond_with Solution.find(params[:id])
+    render json: Solution.find(params[:id])
   end
 
   def create
@@ -23,5 +23,5 @@ private
                                      :content,
                                      :points_earned)
   end
-  
+
 end
