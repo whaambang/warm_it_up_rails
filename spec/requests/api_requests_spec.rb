@@ -23,9 +23,9 @@ describe "API" do
   #problem tests
   it "returns all problems" do
     10.times { Problem.create(content: "If a tree falls in the woods and no one is there to hear it, does it make a sound?", answer: "Nope.") }
+
     get "/api/v1/problems.json"
     json = JSON.parse(response.body)
-
     expect(json['problems'].count).to eq(10)
   end
 
@@ -36,9 +36,8 @@ describe "API" do
     problem.save
 
     get "/api/v1/problems/#{problem.id}.json"
-
     json = JSON.parse(response.body)
-    expect(json['answer']).to eq("Nope.")
+    expect(json["problem"]["answer"]).to eq("Nope.")
   end
 
   #solution tests
@@ -62,7 +61,6 @@ describe "API" do
                                points_earned: 0)
 
     get "/api/v1/solutions/#{solution.id}.json"
-
     json = JSON.parse(response.body)
     expect(json['content']).to eq("things.sort")
   end
