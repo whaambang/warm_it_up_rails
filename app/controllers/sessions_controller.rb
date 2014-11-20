@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
-  def create
-  end
+  # def create
+  #   auth = request.env["omniauth.auth"]
+  #   user = User.find_by(provider: auth["provider"],
+  #                       uid: auth["uid"]) || User.create_with_omniauth(auth)
+  #   session[:user_id] = user.id
+  #   head :ok
+  # end
 end
