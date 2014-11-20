@@ -11,6 +11,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'active_model_serializers'
 gem 'eval_in'
+gem 'omniauth'
+gem 'omniauth-github'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'pry'
