@@ -1,0 +1,6 @@
+language: ruby
+rvm:
+  - 2.1.3
+before_script:
+  - "psql -c 'create database warm_it_up_rails_test;' -U postgres"
+script: bundle exec rspec spec
