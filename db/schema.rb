@@ -1,4 +1,4 @@
-# encoding: UTF-8
+uid# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20141120221844) do
     t.string   "github_name"
     t.string   "email"
     t.integer  "posse_id"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

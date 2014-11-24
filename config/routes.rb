@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     end
   end
 
+  root "pages#home"
   get "/auth/:provider/callback", to: "sessions#create"
 end

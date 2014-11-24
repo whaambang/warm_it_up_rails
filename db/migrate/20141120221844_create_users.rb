@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string   :github_name
       t.string   :email
       t.string   :posse_id
+      t.string   :image
       t.references :posse, index: true
 
       t.timestamps
