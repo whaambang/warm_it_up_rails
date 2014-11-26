@@ -57,8 +57,10 @@ describe "API" do
   end
 
   it "returns a specific solution" do
-    solution = Solution.create(problem_id: 1,
-                               posse_id: 1,
+    problem = Problem.create(content: "A problem", answer: "The answer")
+    posse = Posse.create(name: "Knuth")
+    solution = Solution.create(problem_id: problem.id,
+                               posse_id: posse.id,
                                content: "things.sort",
                                points_earned: 0)
 
