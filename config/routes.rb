@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :problems, only: [:index, :show]
       resources :solutions, only: [:index, :show, :create]
       resources :coderunner
+      get 'api/v1/posses', to: 'posses#index'
     end
   end
 
