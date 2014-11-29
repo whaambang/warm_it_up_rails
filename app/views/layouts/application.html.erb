@@ -9,5 +9,8 @@
 <body>
 <%= yield %>
 <%= link_to "sign in", "/auth/github" %>
+<% if current_user %>
+<%= current_user.name %>
+<%end %>
 </body>
 </html>
