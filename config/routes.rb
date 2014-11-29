@@ -5,9 +5,13 @@ Rails.application.routes.draw do
       resources :problems, only: [:index, :show]
       resources :solutions, only: [:index, :show, :create]
       resources :coderunner
+      resources :users, only: [:create, :index, :show] do
+        collection do
+          get :current
+        end
+      end
     end
   end
-
   root "pages#home"
   get "/auth/:provider/callback", to: "sessions#create"
 end

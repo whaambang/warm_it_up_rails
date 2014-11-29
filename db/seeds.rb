@@ -6,3 +6,4 @@ Solution.create!([
 ])
 Posse.create!([
   ])
+
