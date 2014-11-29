@@ -13,9 +13,10 @@ RSpec.describe "Github Omniauth", :type => :request do
     end
 
     it "successfully logs in with github oauth" do
-      get "auth/google_oauth2/callback"
+      get "auth/github/callback"
       request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:github]
       expect(response.status).to eq(200)
+      expect(User.count).to eq(1)
     end
   end
 end
