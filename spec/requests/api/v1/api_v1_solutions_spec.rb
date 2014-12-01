@@ -41,20 +41,8 @@ RSpec.describe "Api::V1::Solutions", :type => :request do
     user = User.create(name: "allie")
     allow_any_instance_of(ApplicationController).to receive(:current_user) { user }
 
-    put "api/v1/solutions/#{solution.id}.json", solutions_update_hash
+    get "api/v1/solutions/#{solution.id}/like"
     expect(response.status).to eq(200)
-  end
-
-  def solutions_update_hash
-    {
-      "solution" =>
-      {
-        "posse_id"=>"1",
-        "problem_id"=>"1",
-        "content"=>"new content",
-        "points_earned"=>"105",
-        "posse"=>"Knuth"
-      }
-    }
+    expect(solution.votes.count).to eq(1)
   end
 end
