@@ -13,6 +13,7 @@ gem 'active_model_serializers'
 gem 'eval_in'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
