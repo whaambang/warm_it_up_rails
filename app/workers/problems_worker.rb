@@ -2,7 +2,7 @@ class ProblemsWorker
   include Sidekiq::Worker
 
   def perform(index)
-    Problem.create(content: get_problems(index), answer: get_answers(index))
+    Problem.create(content: get_problems(index), answer: get_all_answers[index])
     puts "Problem #{index} created"
   end
 
@@ -13,7 +13,7 @@ class ProblemsWorker
     problem_content = problem_data.at_css('div.problem_content').content
   end
 
-  def get_answers
+  def get_all_answers
     answer_url = "https://code.google.com/p/projecteuler-solutions/wiki/ProjectEulerSolutions"
     answer_data = Nokogiri::HTML(open(answer_url))
     answer_content ||= answer_data.search('p')[2].content.split("\n")

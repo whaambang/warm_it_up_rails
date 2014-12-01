@@ -16,8 +16,8 @@ task :import => [:environment] do
 
     })
   end
-  
-  puts "creating problems..."
+
+  puts "Creating problems..."
 
   476.times do |index|
     ProblemsWorker.perform_async(index)
