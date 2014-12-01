@@ -3,8 +3,6 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
     redirect_to close_window_path
-    # redirect_to '/'
-    # redirect_to request.env['omniauth.origin'] || '/'
   end
 
   def destroy
