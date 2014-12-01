@@ -11,7 +11,9 @@ class Api::V1::SolutionsController < ApplicationController
   end
 
   def create
-    Solution.create(solution_params)
+    solution = Solution.create(solution_params)
+    posse = Posse.find(solution.posse_id)
+    posse.add_score(solution.points_earned)
     head :ok
   end
 
@@ -21,6 +23,7 @@ class Api::V1::SolutionsController < ApplicationController
       params.require(:solution).permit(:posse_id,
                                        :problem_id,
                                        :content,
-                                       :points_earned)
+                                       :points_earned,
+                                       :posse)
     end
 end
