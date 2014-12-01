@@ -1,6 +1,6 @@
 require 'csv'
 
-desc "Import students from csv file"
+desc "Import students from csv file and problems from project euler"
 task :import => [:environment] do
 
   file = "db/posse_students.csv"
@@ -13,8 +13,13 @@ task :import => [:environment] do
       :provider    => row[4],
       :email       => row[5],
       :posse_id    => row[6],
-      
+
     })
   end
 
+  puts "Creating problems..."
+
+  476.times do |index|
+    ProblemsWorker.perform_async(index)
+  end
 end
