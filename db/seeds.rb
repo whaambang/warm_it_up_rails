@@ -6,8 +6,21 @@ Solution.create!([
 ])
 
 Posse.create!([
+  { name: "Backus" },
+  { name: "Berners-Lee" },
+  { name: "Borg" },
+  { name: "Brooks" }
+  { name: "Goldberg" },
+  { name: "Hopper" },
+  { name: "Ingalls" },
+  { name: "Kay" },
   { name: "Knuth" },
-  { name: "Brooks" },
-  { name: "Von Neumann" },
-  { name: "Matsumoto" }
+  { name: "Lovelace" },
+  { name: "Matsumoto" },
+  { name: "McCarthy" },
+  { name: "McNulty" },
+  { name: "Ritchie" },
+  { name: "Sparck-Jones" },
+  { name: "Van-Rossum" },
+  { name: "Von-Neumann" }
 ])
