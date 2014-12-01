@@ -2,10 +2,10 @@ class Api::V1::PossesController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Posse.all
+    render json: Posse.all
   end
 
   def show
-    respond_with Posse.find(params[:id])
+    render json: Posse.find(params[:id])
   end
 end

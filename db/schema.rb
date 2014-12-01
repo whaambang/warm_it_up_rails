@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20141129014727) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "scores"
   end
 
   create_table "problems", force: true do |t|
