@@ -6,6 +6,6 @@ class Api::V1::PossesController < ApplicationController
   end
 
   def show
-    respond_with Posse.find(params[:id])
+    render json: Posse.find(params[:id])
   end
 end
