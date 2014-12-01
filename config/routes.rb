@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   root "pages#home"
   get "/auth/:provider/callback", to: "sessions#create"
   get 'signout', to: 'sessions#destroy'
+  get 'close_window', to: 'sessions#close_window'
 end
