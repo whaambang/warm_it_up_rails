@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :posses, only: [:index, :show]
       resources :problems, only: [:index, :show]
-      resources :solutions, only: [:index, :show, :create, :update]
+      resources :solutions, only: [:index, :show, :create, :update] do
+        member do
+          get :like
+        end
+      end
       resources :coderunner
     end
   end
