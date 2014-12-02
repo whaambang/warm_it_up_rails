@@ -4,7 +4,7 @@ class Posse < ActiveRecord::Base
   has_many :solutions
 
   def add_score(points)
-    self.score += points
+    self.scores += points
     self.save
   end
 end
