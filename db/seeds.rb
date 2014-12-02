@@ -9,7 +9,7 @@ Posse.create!([
   { name: "Backus" },
   { name: "Berners-Lee" },
   { name: "Borg" },
-  { name: "Brooks" }
+  { name: "Brooks" },
   { name: "Goldberg" },
   { name: "Hopper" },
   { name: "Ingalls" },
