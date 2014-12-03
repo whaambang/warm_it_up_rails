@@ -3,11 +3,14 @@ class Api::V1::VotesController < ApplicationController
 
   def create
     solution = Solution.find(params[:vote][:solution_id])
-    vote = solution.votes.find_or_create_by(user_id: current_user.id)
+    vote = solution.votes.find_or_initialize_by(user_id: current_user.id)
     if vote.new_record?
+      vote.save
       solution.add_like_points 
       current_user.posse.add_points(50) 
+      render json: vote
+    else
+      render json: vote, :status => :unprocessable_entity
     end
-    render json: vote
   end
 end
