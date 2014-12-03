@@ -13,18 +13,18 @@ class Api::V1::SolutionsController < ApplicationController
   def create
     points = params[:solution][:points_earned]
     unless current_user.posse.current_solution?
-      current_user.posse.solutions.create(solution_params)
+      solution = current_user.posse.solutions.create(solution_params)
       current_user.posse.add_points(points.to_i)
     end
-    head :ok
+    render json: solution
   end
 
   def like
     solution = Solution.find(params[:id])
-    solution.votes.find_or_create_by(user_id: current_user.id) # only allow one vote per solution per user
+    vote = solution.votes.find_or_create_by(user_id: current_user.id) # only allow one vote per solution per user
     solution.add_like_points
     current_user.posse.add_points(50)
-    render json: solution
+    render json: vote
   end
 
   def remove_like
@@ -33,12 +33,12 @@ class Api::V1::SolutionsController < ApplicationController
     solution.remove_like_points
     current_user.posse.remove_points(50)
     vote.destroy
-    render json: solution
+    render json: vote
   end
 
   private
 
     def solution_params
-      params.require(:solution).permit!
+      params.require(:solution).permit(:problem_id, :content, :points_earned)
     end
 end

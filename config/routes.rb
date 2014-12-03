@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         end
       end
       resources :coderunner
+      resources :votes
       resources :users, only: [:create, :index, :show] do
         collection do
           get :current
