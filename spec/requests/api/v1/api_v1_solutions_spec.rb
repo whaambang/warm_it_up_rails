@@ -28,6 +28,13 @@ RSpec.describe "Api::V1::Solutions", :type => :request do
   end
 
   it 'is able to create solutions' do
+    problem = Problem.create(content: "A problem", answer: "The answer")
+    posse = Posse.create(name: "Knuth")
+    solution = Solution.create(problem_id: problem.id, posse_id: posse.id,
+                               content: "things.sort", points_earned: 0)
+    user = User.create(name: "allie", posse_id: posse.id)
+    allow_any_instance_of(ApplicationController).to receive(:current_user) { user }
+
     post 'api/v1/solutions.json', solution: { posse_id: 1, problem_id: 1, content: "things.sort", points_earned: 0 }
     expect(response.status).to eq(200)
     expect(Solution.count).to eq(1)
