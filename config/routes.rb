@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :solutions, only: [:index, :show, :create, :update] do
         member do
           get :like
+          get :remove_like
         end
       end
       resources :coderunner
