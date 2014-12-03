@@ -21,13 +21,12 @@ class Api::V1::SolutionsController < ApplicationController
     render json: solution
   end
 
-  # WIP - current plan is to delete the record entirely
-  # def remove_vote
-  #   solution = Solution.find(params[:id])
-  #   vote = solution.votes.find_or_create_by(user_id: current_user.id) # only allow one vote per solution per user
-  #   vote.destroy
-  #   render json: solution
-  # end
+  def remove_like
+    solution = Solution.find(params[:id])
+    vote = solution.votes.find_by(user_id: current_user.id) # only allow one vote per solution per user
+    vote.destroy
+    render json: solution
+  end
 
   private
 
