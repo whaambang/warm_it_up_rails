@@ -13,7 +13,7 @@ class Api::V1::SolutionsController < ApplicationController
   def create
     unless current_user.posse.current_solution?
       current_user.posse.solutions.create(solution_params)
-      current_user.posse.add_points(params[:solution][:points_earned])
+      #current_user.posse.add_score(params[:solution][:points_earned])
     end
  #   posse.add_score(solution.points_earned)
     head :ok
@@ -35,6 +35,6 @@ class Api::V1::SolutionsController < ApplicationController
   private
 
     def solution_params
-      params.require(:solution).permit!
+      params.require(:solution).permit(:posse_id, :problem_id, :content, :points_earned)
     end
 end
