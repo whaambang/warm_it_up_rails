@@ -46,6 +46,8 @@ RSpec.describe "Api::V1::Solutions", :type => :request do
     solution = Solution.create(problem_id: problem.id, posse_id: posse.id,
                                content: "things.sort", points_earned: 0)
     user = User.create(name: "allie")
+    user.posse = posse
+    user.save
     allow_any_instance_of(ApplicationController).to receive(:current_user) { user }
 
     get "api/v1/solutions/#{solution.id}/like"
