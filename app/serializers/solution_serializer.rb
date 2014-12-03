@@ -8,7 +8,7 @@ class SolutionSerializer < ActiveModel::Serializer
 
     def attributes
       hash = super
-      hash.merge!(:posse => object.posse.name)
+      hash.merge!(:posse => object.posse.name, :posse_image => object.posse.image_url)
       hash
     end
 #  has_one :posse
