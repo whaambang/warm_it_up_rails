@@ -19,13 +19,6 @@ class Api::V1::SolutionsController < ApplicationController
     render json: solution
   end
 
-  def like
-    solution = Solution.find(params[:id])
-    vote = solution.votes.find_or_create_by(user_id: current_user.id) # only allow one vote per solution per user
-    solution.add_like_points
-    current_user.posse.add_points(50)
-    render json: vote
-  end
 
   def remove_like
     solution = Solution.find(params[:id])
