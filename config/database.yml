@@ -17,10 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: localhost
   pool: 5
-  username: deployment
-  password: warmitup
 
 development:
   <<: *default
@@ -33,3 +30,6 @@ test:
 production:
   <<: *default
   database: warm_it_up_rails_production
+  host: localhost
+  username: deployment
+  password: warmitup
