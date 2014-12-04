@@ -18,8 +18,14 @@ Rails.application.routes.draw do
       end
     end
   end
-  
-  match '*path' => redirect('/')
+  match 'solutions' => redirect('/')
+  match 'solutions/*' => redirect('/')
+  match 'users' => redirect('/')
+  match 'users/*' => redirect('/')
+  match 'problems' => redirect('/')
+  match 'problems/*' => redirect('/')
+  match 'posses' => redirect('/')
+  match 'posses/*' => redirect('/')
 
   root "pages#home"
   get "/auth/:provider/callback", to: "sessions#create"
