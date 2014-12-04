@@ -22,6 +22,9 @@ default: &default
 development:
   <<: *default
   database: warm_it_up_rails_development
+  host: localhost
+  username: deployment
+  password: warmitup
 
 test:
   <<: *default
