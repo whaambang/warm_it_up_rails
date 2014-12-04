@@ -20,16 +20,19 @@ task :import => [:environment] do
 
   puts "Creating problems..."
 
-  problem_url = "https://projecteuler.net/problem="
-  url = problem_url + "#{index+1}"
-  problem_data = Nokogiri::HTML(open(url))
-  problem_content = problem_data.at_css('div.problem_content').content
+  def get_problems(index)
+    problem_url = "https://projecteuler.net/problem="
+    url = problem_url + "#{index+1}"
+    problem_data = Nokogiri::HTML(open(url))
+    problem_content = problem_data.at_css('div.problem_content').content
+  end
 
-  answer_url = "https://code.google.com/p/projecteuler-solutions/wiki/ProjectEulerSolutions"
-  answer_data = Nokogiri::HTML(open(answer_url))
-  answer_content ||= answer_data.search('p')[2].content.split("\n")
-  parsed_content = answer_content[0..-2].map {|number| number[4..-1].gsub(/\W+/, '')}
-
+  def get_all_answers
+    answer_url = "https://code.google.com/p/projecteuler-solutions/wiki/ProjectEulerSolutions"
+    answer_data = Nokogiri::HTML(open(answer_url))
+    answer_content ||= answer_data.search('p')[2].content.split("\n")
+    parsed_content = answer_content[0..-2].map {|number| number[4..-1].gsub(/\W+/, '')}
+  end
 
   476.times do |index|
     Problem.create(content: get_problems(index), answer: get_all_answers[index])
