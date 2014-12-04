@@ -13,4 +13,12 @@ class Api::V1::VotesController < ApplicationController
       render json: vote, :status => :unprocessable_entity
     end
   end
+
+  def destroy
+    vote = Vote.find(params[:id])
+    vote.solution.remove_like_points
+    vote.solution.posse.remove_points(50)
+    vote.destroy
+    head :ok
+  end
 end
