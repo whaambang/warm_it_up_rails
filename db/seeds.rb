@@ -11,6 +11,7 @@ Posse.create!([
   { name: "Borg", image_url: "http://upload.wikimedia.org/wikipedia/en/e/e1/Anita_Borg.jpg" },
   { name: "Brooks", image_url: "http://sysrun.haifa.il.ibm.com/ibm/history/exhibits/builders/images/5406FXB.jpg" },
   { name: "Goldberg", image_url: "http://a2.files.biography.com/image/upload/c_fill,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NTU2MzE2MjMyNDUxNTk1.jpg" },
+  { name: "Holberton", image_url: "http://thecomputerboys.com/wp-content/uploads/2010/11/computer-girl.png"}
   { name: "Hopper", image_url: "http://media.npr.org/assets/img/2014/10/02/grace-hopper_custom-7e094af0ae451cd447568fd03d9c89ba6bf8b352.jpg" },
   { name: "Ingalls", image_url: "http://www.erlang-factory.com/upload/peopleimage/SFBay2011_DanIngalls/Dan" },
   { name: "Kay", image_url: "http://img.quotery.com/pictures/2013/02/alan-kay.jpg" },

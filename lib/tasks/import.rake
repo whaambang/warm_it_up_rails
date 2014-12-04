@@ -12,8 +12,7 @@ task :import => [:environment] do
       :uid         => row[3],
       :provider    => row[4],
       :email       => row[5],
-      :posse_id    => row[6],
-
+      :posse_id    => row[6]
     })
   end
 
