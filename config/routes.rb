@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       end
     end
   end
+  
+  match '*path' => redirect('/')
 
   root "pages#home"
   get "/auth/:provider/callback", to: "sessions#create"
