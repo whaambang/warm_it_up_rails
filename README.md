@@ -36,7 +36,12 @@ Here students can browse and vote on solutions submitted by their peers.  We dec
 
 ## Installation
 
-You've found yourself in the Rails component of Warm It Up, which serves content to our front end and deals with persistent data.  For convenience there will be full local installation instructions in both README's (Ember and Rails, you can find the Ember application [here](https://github.com/whaambang/warm_it_up_ember).
+For Ember you will need the following things properly installed on your computer.
+
+* [Git](http://git-scm.com/)
+* [Node.js](http://nodejs.org/) (with NPM) and [Bower](http://bower.io/)
+
+You've found yourself in the Ember component of Warm It Up, which serves content to our front end and deals with persistent data.  For convenience there will be full local installation instructions in both README's (Ember and Rails, you can find the Rails application [here](https://github.com/whaambang/warm_it_up_rails).
 
 To get everything up and running locally:
 
@@ -63,3 +68,28 @@ ember server -proxy http://localhost:3000 # or whatever port you plan on running
 To import problems (around 480 of them), run `rake import` from the Rails directory.  You'll need to have [Redis](http://redis.io/) and [Sidekiq](https://github.com/mperham/sidekiq) installed and running.  If you just want to tinker this might be overkill, and if desired you can always add problems from the Rails console.
 
 At this point you can point your browser to `http://localhost:4200` and everything should be running smoothly.
+
+### Running Tests
+
+* `ember test`
+* `ember test --server`
+
+### Building
+
+* `ember build` (development)
+* `ember build --environment production` (production)
+
+## Wish List of things to Implement
+
+* Refactor to use a current user controller instead of the current implementation
+* Problem is only available right before the start of warmup time
+* Admin for adding problems and students and managing posses
+* Problems in multiple languages
+
+## Further Reading / Useful Links
+
+* ember: http://emberjs.com/
+* ember-cli: http://www.ember-cli.com/
+* Development Browser Extensions
+  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
