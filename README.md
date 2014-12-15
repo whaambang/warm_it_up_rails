@@ -24,13 +24,13 @@ Scoring is on a per-posse basis.  Solutions recieve points based on when they we
 
 #### Problems
 
-![problems screenshot](http://i.imgur.com/zHAF3ro.png)
+![problems screenshot](http://i.imgur.com/r9VKtNC.png)
 
 Each day there will be new problem from Project Euler displayed on this page.  Type in your solution and use the run button to check against the server.  You'll get feedback on whether your solution was correct (Project Euler was straightforward on this front as answers are numeric), and finally you can submit your solution for points.
 
 #### Solutions
 
-![solutions screenshot](http://i.imgur.com/X9DxV6E.png)
+![solutions screenshot](http://i.imgur.com/bRQai9H.png)
 
 Here students can browse and vote on solutions submitted by their peers.  We decided it was best to use humans to judge the 'correctness' or quality of a particular solution instead of computer based metrics like line and method length.  
 
