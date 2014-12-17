@@ -14,11 +14,20 @@ Students can:
 * Solutions receive points for correctness as well as number of upvotes
 
 
-It's an Ember.js front end supported by a Rails back end.  Currently [Project Euler](https://projecteuler.net/) is supported and problems rotate automatically on a daily basis.  Future plans are to support LSAT problems, [exercisms](http://www.exercism.io/), and custom problems such as implementing Enumerable methods like `flatten`.  If any Turing students are feeling particularly brave and true we are always accepting PR's!
+It's an Ember.js front end supported by a Rails back end.  Currently [Project Euler](https://projecteuler.net/) is supported and problems rotate automatically on a daily basis.  Future plans are to support LSAT problems, [exercisms](http://www.exercism.io/), and custom problems such as implementing Enumerable methods like `flatten`.  
+
+If any Turing students are feeling particularly brave and true we are always accepting PR's!  It was always intended to be a project that subsequent cohorts could not only benefit from, but contribute to directly.  After getting feedback from the instructors (Hi Steve!), Warm It Up needs the following to really move out of 'beta' (there is a full wishlist of features and refactorings below as well):
+
+* Support for multiple kinds of exercises
+* A web interface to add new problems
+* A way to assign problems to specific dates
+* A calender-type view of problems that have been associated with dates
 
 ## Major Features
 
 #### Scores
+
+![scores screenshot](http://i.imgur.com/JlTvT9z.png)
 
 Scoring is on a per-posse basis.  Solutions recieve points based on when they were submitted - earlier submissions will receive more points.  All solutions receive a base score of 200.  Solutions also receive 50 points per upvote from other students, where each student (not posse) can vote once per solution.  Here you can see total points for each posse and live updates for newly submitted solutions.
 
