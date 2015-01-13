@@ -23,15 +23,11 @@ development:
   <<: *default
   database: warm_it_up_rails_development
   host: localhost
-  username: deployment
-  password: warmitup
 
 test:
   <<: *default
   database: warm_it_up_rails_test
   host: localhost
-  username: deployment
-  password: warmitup
 
 
 production:
