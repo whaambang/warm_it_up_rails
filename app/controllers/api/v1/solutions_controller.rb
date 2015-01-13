@@ -10,6 +10,9 @@ class Api::V1::SolutionsController < ApplicationController
     render json: Solution.find(params[:id])
   end
 
+  # Point behavior may be worth looking into, if we're adding points
+  # for every solution that gets created we may as well make that the
+  # default upon creation
   def create
     points = params[:solution][:points_earned]
     unless current_user.posse.current_solution?
