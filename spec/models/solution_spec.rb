@@ -4,7 +4,6 @@ describe Solution, type: :model do
 
   it { should have_many(:votes)   }
   it { should belong_to(:posse)   }
-  it { should belong_to(:user)    }
   it { should belong_to(:problem) }
 
 
