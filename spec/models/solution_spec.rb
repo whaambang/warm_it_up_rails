@@ -2,7 +2,11 @@ require 'rails_helper'
 
 describe Solution, type: :model do
 
-  it { should have_many(:votes) }
+  it { should have_many(:votes)   }
+  it { should belong_to(:posse)   }
+  it { should belong_to(:user)    }
+  it { should belong_to(:problem) }
+
 
   it 'is valid with a problem_id, posse_id, content, and points_earned' do
     solution = Solution.create(problem_id: 1, posse_id: 1, content: "things.sort", points_earned: 0)
