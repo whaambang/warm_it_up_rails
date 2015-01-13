@@ -17,5 +17,4 @@ class Solution < ActiveRecord::Base
     self.save
     self.posse.remove_points(250)
   end
-
 end
