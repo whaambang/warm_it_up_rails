@@ -3,10 +3,9 @@ class Solution < ActiveRecord::Base
   validates :posse_id, presence: true
   validates :content, presence: true
   belongs_to :posse
-  belongs_to :user
   belongs_to :problem
   has_many :votes
- 
+
   def add_like_points
     self.points_earned += 250
     self.save
@@ -18,5 +17,4 @@ class Solution < ActiveRecord::Base
     self.save
     self.posse.remove_points(250)
   end
-
 end

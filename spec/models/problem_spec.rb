@@ -1,22 +1,28 @@
 require 'rails_helper'
 
-describe 'the problem' do
+describe Problem, :type => :model do
+  it { should have_many (:solutions) }
 
-  it 'is valid with content and an answer' do
-    problem = Problem.new(content: "Hardest question ever.",
-                          answer: "You'll never guess it.")
-    problem.save
+  describe "with valid params" do
+    it "is valid" do
+      problem = Problem.new(content: "Hardest question ever.",
+                            answer: "You'll never guess it.")
 
-    expect(Problem.count).to eq(1)
+      expect(problem).to be_valid
+    end
   end
 
-  it 'is invalid without either content or an answer' do
-    missing_answer = Problem.new(content: "Hardest question ever.")
-    missing_answer.save
+  describe "with invalid params" do
+    it "is invalid without content" do
+      problem = Problem.new(content: "Hardest question ever.")
 
-    missing_content = Problem.new(answer: "You'll never guess it.")
-    missing_content.save
+      expect(problem).not_to be_valid
+    end
 
-    expect(Problem.count).to eq(0)
+    it "is invalid without an answer" do
+      problem = Problem.new(answer: "You'll never guess it.")
+
+      expect(problem).not_to be_valid
+    end
   end
 end
