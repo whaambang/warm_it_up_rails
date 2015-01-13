@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-describe "the posse model" do
-
+describe "Posse", :type => :model do
   it "is valid with a name" do
     posse = Posse.new
     posse.name = "McCarthy"
