@@ -5,24 +5,22 @@ describe Problem, :type => :model do
     it "is valid" do
       problem = Problem.new(content: "Hardest question ever.",
                             answer: "You'll never guess it.")
-      problem.save
 
-      expect(Problem.count).to eq(1)
+      expect(problem).to be_valid
     end
   end
 
   describe "with invalid params" do
     it "is invalid without content" do
-      missing_answer = Problem.new(content: "Hardest question ever.")
-      missing_answer.save
+      problem = Problem.new(content: "Hardest question ever.")
 
-      missing_content = Problem.new(answer: "You'll never guess it.")
-      missing_content.save
-
-      expect(Problem.count).to eq(0)
+      expect(problem).not_to be_valid
     end
 
     it "is invalid without an answer" do
+      problem = Problem.new(answer: "You'll never guess it.")
+
+      expect(problem).not_to be_valid
     end
   end
 end
