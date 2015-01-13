@@ -1,13 +1,10 @@
 require 'rails_helper'
 
 describe "Posse", :type => :model do
-  it "is valid with a name" do
-    posse = Posse.new
-    posse.name = "McCarthy"
-    posse.save
+  it "is valid" do
+    posse = Posse.new(name: "McCarthy")
 
-    expect(Posse.all.count).to eq(1)
-    expect(Posse.first.name).to eq("McCarthy")
+    expect(posse).to be_valid
   end
 
   it "is invalid without a name" do
