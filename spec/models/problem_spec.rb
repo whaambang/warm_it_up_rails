@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Problem, :type => :model do
+  it { should have_many (:solutions) }
+
   describe "with valid params" do
     it "is valid" do
       problem = Problem.new(content: "Hardest question ever.",
