@@ -8,8 +8,8 @@ describe "Posse", :type => :model do
   end
 
   it "is invalid without a name" do
-    posse = Posse.create
+    posse = Posse.new
 
-    expect(Posse.all.count).to eq(0)
+    expect(posse).not_to be_valid
   end
 end
