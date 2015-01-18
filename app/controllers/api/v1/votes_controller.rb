@@ -1,13 +1,16 @@
 class Api::V1::VotesController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
+  # Use transactions in create/destroy (with multiple database interactions
+  # in a single action, we need to account for the server failing
+  # without completing everything
   def create
     solution = Solution.find(params[:vote][:solution_id])
     vote = solution.votes.find_or_initialize_by(user_id: current_user.id)
     if vote.new_record?
       vote.save
-      solution.add_like_points 
-      current_user.posse.add_points(50) 
+      solution.add_like_points
+      current_user.posse.add_points(50)
       render json: vote
     else
       render json: vote, :status => :unprocessable_entity

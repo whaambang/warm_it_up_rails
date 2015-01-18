@@ -3,11 +3,11 @@ class Api::V1::SolutionsController < ApplicationController
   respond_to :json
 
   def index
-    render json: Solution.all
+    respond_with Solution.all
   end
 
   def show
-    render json: Solution.find(params[:id])
+    respond_with Solution.find(params[:id])
   end
 
   # Point behavior may be worth looking into, if we're adding points
@@ -20,16 +20,6 @@ class Api::V1::SolutionsController < ApplicationController
       current_user.posse.add_points(points.to_i)
     end
     render json: solution
-  end
-
-
-  def remove_like
-    solution = Solution.find(params[:id])
-    vote = solution.votes.find_by(user_id: current_user.id) # only allow one vote per solution per user
-    solution.remove_like_points
-    current_user.posse.remove_points(50)
-    vote.destroy
-    render json: vote
   end
 
   private

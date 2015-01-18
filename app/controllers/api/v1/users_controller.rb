@@ -14,10 +14,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def current
-    pp current_user
-    pp session[:user_id]
-    # respond_with current_user
-    render json: current_user
+    respond_with current_user
   end
 
 private
