@@ -22,16 +22,6 @@ class Api::V1::SolutionsController < ApplicationController
     render json: solution
   end
 
-
-  def remove_like
-    solution = Solution.find(params[:id])
-    vote = solution.votes.find_by(user_id: current_user.id) # only allow one vote per solution per user
-    solution.remove_like_points
-    current_user.posse.remove_points(50)
-    vote.destroy
-    respond_with vote
-  end
-
   private
 
     def solution_params
