@@ -1,13 +1,12 @@
 class Api::V1::ProblemsController < ApplicationController
-  # respond_to :json
+  respond_to :json
 
   def index
-    # respond_with Problem.all
-    render json: Problem.all
+    respond_with Problem.all
   end
 
   def show
-    # respond_with Problem.find(params[:id])
-    render json: Problem.find(params[:id])
+    problem = Problem.find(params[:id])
+    respond_with problem
   end
 end
